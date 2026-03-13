@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Grátis - Prospecta Pró</title>
+    <style>
+        /* Estilos Base */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+        h1 { color: #1a1a1a; margin-bottom: 10px; font-size: 2.2em; }
+        p.subtitle { font-size: 1.2em; color: #555; margin-bottom: 40px; }
+
+        /* Seção do Vídeo */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 40px; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); background-color: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Seção de Como Funciona */
+        .features { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-bottom: 50px; text-align: left; }
+        .feature-box { flex: 1; min-width: 220px; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .feature-box h3 { margin-top: 0; color: #0056b3; font-size: 1.2em; border-bottom: 2px solid #e9ecef; padding-bottom: 10px; }
+        .feature-box p { color: #666; line-height: 1.5; font-size: 0.95em; }
+
+        /* Seção do Formulário */
+        .form-section { background: #fff; padding: 40px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .form-section h2 { margin-top: 0; margin-bottom: 25px; color: #222; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; }
+        .form-group input { width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 1em; background-color: #fafafa; transition: border-color 0.3s; }
+        .form-group input:focus { border-color: #0056b3; outline: none; background-color: #fff; }
+        
+        .aviso-whatsapp { background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 6px; border-left: 5px solid #ffeeba; font-weight: 600; font-size: 0.9em; margin: 25px 0; text-align: left; }
+
+        /* Botão */
+        .btn-download { display: block; background-color: #28a745; color: white; padding: 18px 30px; font-size: 1.2em; font-weight: bold; text-decoration: none; border-radius: 6px; border: none; cursor: pointer; width: 100%; transition: background 0.3s, transform 0.1s; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-download:hover { background-color: #218838; transform: translateY(-2px); }
+        .btn-download:disabled { background-color: #6c757d; cursor: not-allowed; transform: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Libere seu Teste Grátis de 7 Dias</h1>
+        <p class="subtitle">Descubra no vídeo abaixo como gerar listas B2B altamente qualificadas.</p>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/UolZU8CWNn4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="features">
+            <div class="feature-box">
+                <h3>📍 Busca no Maps</h3>
+                <p>O Prospecta varre o Google Maps para encontrar empresas exatas no seu nicho e na região que você definir.</p>
+            </div>
+            <div class="feature-box">
+                <h3>⚡ Extração Ágil</h3>
+                <p>Coleta dados vitais e contatos de forma automatizada, poupando horas de pesquisa manual.</p>
+            </div>
+            <div class="feature-box">
+                <h3>📈 Pronta para Ação</h3>
+                <p>Após a coleta automatizada, sua lista fica pronta na hora. Você já pode chamar o prospect direto no WhatsApp com um clique e iniciar suas abordagens de vendas!</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Preencha os dados para iniciar o download</h2>
+            
+            <form id="form-prospecta" action="https://formspree.io/f/xwvrqepk" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail Profissional</label>
+                    <input type="email" id="email" name="email" required placeholder="Digite seu melhor e-mail">
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(DDD) 90000-0000">
+                </div>
+
+                <div class="aviso-whatsapp">
+                    Importante: A chave de licença para ativar seus 7 dias de teste grátis será enviada exclusivamente para o WhatsApp informado acima.
+                </div>
+
+                <button type="submit" id="btn-submit" class="btn-download">Baixar Prospecta via Drive</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var form = document.getElementById("form-prospecta");
+        
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede a tela branca do Formspree de aparecer
+            
+            var btn = document.getElementById("btn-submit");
+            btn.innerHTML = "Liberando Download..."; // Muda o texto do botão visualmente
+            btn.disabled = true; // Impede duplo clique
+
+            var data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Se enviou com sucesso pro seu e-mail, joga direto pro Google Drive
+                    window.location.href = "https://drive.google.com/file/d/1GWKhbZ5uqaUi6sFakY5ZetUgixWBH_SH/view?usp=sharing";
+                } else {
+                    alert("Ocorreu um erro ao enviar. Por favor, tente novamente.");
+                    btn.innerHTML = "Baixar Prospecta via Drive";
+                    btn.disabled = false;
+                }
+            }).catch(error => {
+                alert("Erro de conexão. Verifique sua internet.");
+                btn.innerHTML = "Baixar Prospecta via Drive";
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
